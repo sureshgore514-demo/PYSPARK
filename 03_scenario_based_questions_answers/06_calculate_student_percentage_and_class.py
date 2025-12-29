@@ -39,7 +39,16 @@ df_join = df1.join(df2, df1.Id == df2.Id, how="inner").drop(df2.Id)
 
 df_percentage = df_join.groupBy(["Id","Name"]).agg((sum("Mark")/count("*")).alias("Percentage"))
 
-df_percentage.show()
+df_result = df_percentage.select('*',
+                     (when(df_percentage.Percentage >= 70 , 'Distinction')
+                     .when((df_percentage.Percentage < 70) & (df_percentage.Percentage >=60), 'First Class')
+                     .when((df_percentage.Percentage < 60) & (df_percentage.Percentage > 50), 'Second Class')
+                     .when((df_percentage.Percentage < 50) & (df_percentage.Percentage >= 40), 'Third Class')
+                     .when((df_percentage.Percentage < 40),'Fail')
+                     ).alias("Grade"))
+df_result.show()
+
+#df_percentage.show()
 
 spark.stop()
 
