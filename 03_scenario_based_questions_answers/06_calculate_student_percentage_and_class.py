@@ -1,6 +1,16 @@
 '''
 calculate student marks per percentage
 
+output:
++---+------+----------+-----------+
+| Id|  Name|Percentage|      Grade|
++---+------+----------+-----------+
+|100| Parth|      85.0|Distinction|
+|101|Swaraj|      88.0|Distinction|
+|102| Sanvi|      92.0|Distinction|
+|104| Tanvi|      92.5|Distinction|
++---+------+----------+-----------+
+
 '''
 from Tools.scripts.dutree import display
 from pyspark.sql import SparkSession
@@ -51,4 +61,3 @@ df_result.show()
 #df_percentage.show()
 
 spark.stop()
-
