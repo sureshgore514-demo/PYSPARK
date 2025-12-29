@@ -11,7 +11,7 @@ spark = SparkSession.builder.appName("coalsce").getOrCreate()
 
 data = [
     (100,None,"Pune"),
-    (200,"Mumbai", None),
+    (200,"Mumbai", "Hyd"),
     (300,None,"Nashik")
 ]
 
