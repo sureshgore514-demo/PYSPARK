@@ -37,7 +37,7 @@ df_join = df1.join(df2, df1.Id == df2.Id, how="inner").drop(df2.Id)
 
 #df_join.show()
 
-df_percentage = df_join.groupBy(["Id","Name"]).agg(sum("Mark")/count("*").alias("Percentage"))
+df_percentage = df_join.groupBy(["Id","Name"]).agg((sum("Mark")/count("*")).alias("Percentage"))
 
 df_percentage.show()
 
