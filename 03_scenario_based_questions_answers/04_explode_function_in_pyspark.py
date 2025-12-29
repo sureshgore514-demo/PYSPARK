@@ -1,5 +1,5 @@
 '''
-In pyspark the explode() is used to convert array or map columns into multiple rows.
+explode() is used to flatten array or map columns into multiple rows, creating one row per element.
 ex [a,b,c]
 ==> a
     b
